@@ -17,6 +17,7 @@ android:
   components:
     - tools
     - platform-tools
+	- tools #used above api 25.x
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     # Specify both versions to resolve issue with missing image from google repository
     - android-$ANDROID_API_LEVEL
