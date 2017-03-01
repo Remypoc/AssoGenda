@@ -2,7 +2,8 @@ language: android
 jdk: oraclejdk8
 # Use the Travis Container-Based Infrastructure
 sudo: false
-
+install: 
+  - travis_wait
 env:
   global:
     # - ANDROID_TARGET=android-22
@@ -17,7 +18,6 @@ android:
   components:
     - tools
     - platform-tools
-    - tools
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     # Specify both versions to resolve issue with missing image from google repository
     - android-$ANDROID_API_LEVEL
@@ -33,7 +33,6 @@ android:
     - 'android-sdk-preview-license-.+'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
-
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -42,8 +41,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
-	
-
 # Launch android emulator and wait for it
 before_script:
     - echo no | android create avd --force -n test -t "android-"$EMULATOR_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
