@@ -179,29 +179,39 @@ public class EventInfosActivity extends AppCompatActivity {
 
                         }
                     });
+                    int seats =  Integer.parseInt(String.valueOf(dataSnapshot.child("seats free").getValue()));
+
                     HashMap<String,Object> hashMapValueDateBegin = new HashMap<>();
-                    hashMapValueDateBegin.put("title_info","Date de début : ");
+                    hashMapValueDateBegin.put("title_info","Start date : ");
                     hashMapValueDateBegin.put("content_info",event.start);
                     HashMap<String,Object> hashMapValueDateEnd = new HashMap<>();
-                    hashMapValueDateEnd.put("title_info","Date de fin : ");
+                    hashMapValueDateEnd.put("title_info","End date : ");
                     hashMapValueDateEnd.put("content_info",event.end);
                     HashMap<String,Object> hashMapValuePrice = new HashMap<>();
-                    hashMapValuePrice.put("title_info","Prix : ");
-                    hashMapValuePrice.put("content_info",event.price+" €");
+                    hashMapValuePrice.put("title_info","Price : ");
+                    if(event.price != -1) {
+                        hashMapValuePrice.put("content_info", event.price+" €");
+                    } else {
+                        hashMapValuePrice.put("content_info", getString(R.string.event_show_price_free));
+                    }
                     HashMap<String,Object> hashMapValueSpace = new HashMap<>();
-                    hashMapValueSpace.put("title_info","Places disponible : ");
-                    hashMapValueSpace.put("content_info",event.seat_free);
+                    hashMapValueSpace.put("title_info","Available seats : ");
+                    if(seats > 0) {
+                        hashMapValueSpace.put("content_info", seats);
+                    } else {
+                        hashMapValueSpace.put("content_info", getString(R.string.event_show_seats_available_nolimit));
+                    }
                     HashMap<String,Object> hashMapValueBail = new HashMap<>();
-                    hashMapValueBail.put("title_info","Caution : ");
+                    hashMapValueBail.put("title_info","Bail : ");
                     hashMapValueBail.put("content_info",event.bail);
                     HashMap<String,Object> hashMapValuePlace = new HashMap<>();
-                    hashMapValuePlace.put("title_info","Lieu : ");
+                    hashMapValuePlace.put("title_info","Location : ");
                     hashMapValuePlace.put("content_info",event.location);
                     HashMap<String,Object> hashMapValueDescription = new HashMap<>();
                     hashMapValueDescription.put("title_info","Description : ");
                     hashMapValueDescription.put("content_info",event.description);
                     HashMap<String,Object> hashMapValueCategorie = new HashMap<>();
-                    hashMapValueCategorie.put("title_info","Categorie : ");
+                    hashMapValueCategorie.put("title_info","Type : ");
                     hashMapValueCategorie.put("content_info",event.type);
 
                     listValues.add(hashMapValueDateBegin);

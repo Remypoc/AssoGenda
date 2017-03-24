@@ -69,10 +69,15 @@
     <string name="event_create_description">Description</string>
     <string name="event_create_location">Location</string>
     <string name="event_create_price">Price (€)</string>
+    <string name="event_create_category">Category</string>
     <string name="event_create_seats_available">Seats available</string>
     <string name="event_create_submit_date_error_message">The end date cannot be anterior to the start !</string>
     <string name="event_create_submit_seats_error_message">You need at least five seats available to your event !</string>
     <string name="event_create_submit_price_error_message">The price cannot be negative !</string>
+
+    <!-- Event show -->
+    <string name="event_show_price_free">Free</string>
+    <string name="event_show_seats_available_nolimit">No limit</string>
 
     <!-- Login -->
     <string name="log_in_text">Log in to AssoGenda</string>
@@ -89,7 +94,6 @@
     <string name="event_list">Events list</string>
     <string name="association_followed">Followed associations </string>
     <string name="association_list">Associations list</string>
-
 
     <string-array name="event_create_event_types">
         <item>Sport</item>
